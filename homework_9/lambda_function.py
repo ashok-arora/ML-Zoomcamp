@@ -7,7 +7,7 @@ from urllib import request
 from PIL import Image
 import numpy as np
 
-interpreter = tflite.Interpreter(model_path='dogs_cats.tflite')
+interpreter = tflite.Interpreter(model_path='cats-dogs-v2.tflite')
 interpreter.allocate_tensors()
 
 input_index = interpreter.get_input_details()[0]['index']
@@ -35,9 +35,9 @@ def prepare_image(img, target_size):
 def predict(url):
     img = download_image(url)
     prepared_img = prepare_image(img, (150, 150))
-    x = np.array(prepared_img, dtype='float32')
+    x = np.array(prepared_img, dtype='float32')/255
 
-    interpreter.set_tensor(input_index, x)
+    interpreter.set_tensor(input_index, [x])
     interpreter.invoke()
     preds = interpreter.get_tensor(output_index)
 

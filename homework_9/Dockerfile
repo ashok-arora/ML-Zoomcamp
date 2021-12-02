@@ -5,4 +5,4 @@ RUN pip install https://github.com/alexeygrigorev/tflite-aws-lambda/raw/main/tfl
 
 COPY lambda_function.py .
 
-ENTRYPOINT [ "lambda_function.lambda_handler" ]
+CMD [ "lambda_function.lambda_handler" ]
