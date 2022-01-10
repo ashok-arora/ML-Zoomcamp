@@ -176,6 +176,8 @@ What's the name of the pod that just started?
 ashok@Ashoks-Mac-mini homework_10 % kubectl get pods
 ```
 
+pod name: churn-b495897dd-xnmm5
+
 ## Question 6: Creating a service 
 
 Let's create a service for this deployment (`service.yaml`):
